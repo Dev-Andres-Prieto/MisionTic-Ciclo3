@@ -8,3 +8,9 @@
 .sizeDiv{
     width: 40vw;
 }
+img{
+    width: auto;
+    height: auto;
+    max-width: 445px; 
+    max-height: 445px
+}

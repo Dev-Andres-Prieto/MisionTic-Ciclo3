@@ -1,7 +1,6 @@
 package beans;
 
 public class Usuario {
-    private int idUser;    
     private String nombre;
     private String apellido;
     private String telefono;
@@ -11,9 +10,10 @@ public class Usuario {
     private String numDocumento;
     private int idTipoDocumento;
     private int idTipoPersona;
+    private int saldo;
 
-    public Usuario(int idUser, String nombre, String apellido, String telefono, String direccion, String email, String password, String numDocumento, int idTipoDocumento, int idTipoPersona) {
-        this.idUser = idUser;
+    public Usuario(String nombre, String apellido, String telefono, String direccion, String email, String password, String numDocumento, int idTipoDocumento, int idTipoPersona, int saldo) {
+        
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -23,14 +23,7 @@ public class Usuario {
         this.numDocumento = numDocumento;
         this.idTipoDocumento = idTipoDocumento;
         this.idTipoPersona = idTipoPersona;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+        this.saldo = saldo;
     }
 
     public String getNombre() {
@@ -104,10 +97,18 @@ public class Usuario {
     public void setIdTipoPersona(int idTipoPersona) {
         this.idTipoPersona = idTipoPersona;
     }
+    
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
 
     @Override
     public String toString() {
-        return "Usuario{" + "idUser=" + idUser + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", email=" + email + ", password=" + password + ", numDocumento=" + numDocumento + ", idTipoDocumento=" + idTipoDocumento + ", idTipoPersona=" + idTipoPersona + '}';
+        return "Usuario{" + " nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", email=" + email + ", password=" + password + ", numDocumento=" + numDocumento + ", idTipoDocumento=" + idTipoDocumento + ", idTipoPersona=" + idTipoPersona + ", saldo=" + saldo +'}';
     }
     
     
