@@ -8,10 +8,10 @@ import java.sql.DriverManager;
 
 public class DBConnection {
     Connection connection;
-    static String db = "movies_rental";
+    static String db = "moviesrental";
     static String port = "3306";   /* El puerto de la base de datos 3307 */
     static String login = "root";
-    static String password = "admin";
+    static String password = "123qweasd";
 
     public DBConnection() {
         try {

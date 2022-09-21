@@ -2,7 +2,7 @@
 package beans;
 
 public class Usuario {
-    private int username;
+    private String username;
     private String contrasena;
     private String nombre;
     private String apellido;
@@ -10,7 +10,7 @@ public class Usuario {
     private double saldo;
     private boolean premium;
 
-    public Usuario(int username, String contrasena, String nombre, String apellido, String email, double saldo, boolean premium) {
+    public Usuario(String username, String contrasena, String nombre, String apellido, String email, double saldo, boolean premium) {
         this.username = username;
         this.contrasena = contrasena;
         this.nombre = nombre;
@@ -20,11 +20,11 @@ public class Usuario {
         this.premium = premium;
     }
 
-    public int getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(int username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 

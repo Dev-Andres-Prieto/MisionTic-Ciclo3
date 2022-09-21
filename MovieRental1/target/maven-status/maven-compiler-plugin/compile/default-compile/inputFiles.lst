@@ -1,6 +1,17 @@
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\connection\DBConnection.java
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\beans\Alquiler.java
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\beans\Usuario.java
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\servlets\PruebaServlet.java
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\beans\Pelicula.java
-C:\Users\andre\OneDrive\Documents\NetBeansProjects\MovieRental1\src\main\java\test\OperacionesDB.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletUsuarioPedir.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletPeliculaListar.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\test\OperacionesDB.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\beans\Usuario.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\controller\UsuarioController.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletPeliculaAlquilar.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletTest.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\PruebaServlet.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\controller\IPeliculaController.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\beans\Pelicula.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\beans\Alquiler.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\controller\PeliculaController.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\controller\IUsuarioController.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletUsuarioRegister.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletUsuarioRestarDinero.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\servlets\ServletUsuarioLogin.java
+G:\Documentos\MinTIC\03 Ciclo3\Programacion\JavaProjects\MovieRental1\src\main\java\connection\DBConnection.java
