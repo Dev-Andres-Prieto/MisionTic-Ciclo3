@@ -11,6 +11,17 @@ public class Reserva {
     private Date fechaDevolucion;
     private String duracion;
     private double totalContrato;
+    
+    public Reserva(int idVehiculo, int idUSuario, int idSucursal, Date fechaRecepcion, Date fechaDevolucion, String duracion, double totalContrato) {
+        
+        this.idVehiculo = idVehiculo;
+        this.idUSuario = idUSuario;
+        this.idSucursal = idSucursal;
+        this.fechaRecepcion = fechaRecepcion;
+        this.fechaDevolucion = fechaDevolucion;
+        this.duracion = duracion;
+        this.totalContrato = totalContrato;
+    }
 
     public Reserva(int idReserva, int idVehiculo, int idUSuario, int idSucursal, Date fechaRecepcion, Date fechaDevolucion, String duracion, double totalContrato) {
         this.idReserva = idReserva;

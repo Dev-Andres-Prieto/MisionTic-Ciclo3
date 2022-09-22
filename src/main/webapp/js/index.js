@@ -23,10 +23,13 @@ function autenticarUsuario(){
         }),
         success: function(result){
             let parsedResult = JSON.parse(result);
+            
             if(parsedResult != false){
                 $("#login-error").addClass("d-none");
-                let email = parsedResult['email'];                
-                document.location.href = "home.html?email=" + email;
+                let email = parsedResult['email'];
+                let idUser = parsedResult['idUsuario'];                
+                document.location.href = "home.html?email=" + email + "&idUser=" + idUser;
+                
             }else {
                 $("#login-error").removeClass("d-none");
             }
@@ -46,7 +49,9 @@ function registrarUsuario() {
     let contrasena = $("#input-contrasena").val();    
     let contrasenaConfirmacion = $("#input-contrasena-repeat").val();    
     let email = $("#input-email").val();
+    let saldo = $("#input-saldo").val();
 
+    alert(saldo);
     if (contrasena == contrasenaConfirmacion) {
         $.ajax({
             type: "GET",
@@ -61,7 +66,8 @@ function registrarUsuario() {
                 telefono: telefono,
                 direccion: direccion,
                 contrasena: contrasena,
-                email: email
+                email: email,
+                saldo: saldo
             }),
             success: function (result) {
                 let parsedResult = JSON.parse(result);

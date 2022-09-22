@@ -64,6 +64,7 @@ public class ServletUsuarioRegister extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UsuarioController usuario = new UsuarioController();
+        
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellidos");
         String telefono = request.getParameter("telefono");
@@ -73,10 +74,10 @@ public class ServletUsuarioRegister extends HttpServlet {
         int idTipoDocumento = Integer.parseInt(request.getParameter("idTipoDocumento"));
         int idTipoPersona = Integer.parseInt(request.getParameter("idTipoPersona"));
         String numDocumento = request.getParameter("numDocumento");
-        int saldo = Integer.parseInt("saldo");
+        double saldo = Double.parseDouble(request.getParameter("saldo"));
         
         String result = usuario.register(nombre, apellido, telefono, direccion, email, contrasena, numDocumento, idTipoDocumento, idTipoPersona, saldo);
-        
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println(result);

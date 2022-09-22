@@ -1,6 +1,7 @@
 package beans;
 
 public class Usuario {
+    private int idUsuario;
     private String nombre;
     private String apellido;
     private String telefono;
@@ -10,10 +11,9 @@ public class Usuario {
     private String numDocumento;
     private int idTipoDocumento;
     private int idTipoPersona;
-    private int saldo;
+    private double saldo;
 
-    public Usuario(String nombre, String apellido, String telefono, String direccion, String email, String password, String numDocumento, int idTipoDocumento, int idTipoPersona, int saldo) {
-        
+    public Usuario(String nombre, String apellido, String telefono, String direccion, String email, String password, String numDocumento, int idTipoDocumento, int idTipoPersona, double saldo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -24,6 +24,28 @@ public class Usuario {
         this.idTipoDocumento = idTipoDocumento;
         this.idTipoPersona = idTipoPersona;
         this.saldo = saldo;
+    }
+    
+    public Usuario(int idUsuario, String nombre, String apellido, String telefono, String direccion, String email, String password, String numDocumento, int idTipoDocumento, int idTipoPersona, double saldo) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.email = email;
+        this.password = password;
+        this.numDocumento = numDocumento;
+        this.idTipoDocumento = idTipoDocumento;
+        this.idTipoPersona = idTipoPersona;
+        this.saldo = saldo;
+    }
+    
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
@@ -98,18 +120,16 @@ public class Usuario {
         this.idTipoPersona = idTipoPersona;
     }
     
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + " nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", email=" + email + ", password=" + password + ", numDocumento=" + numDocumento + ", idTipoDocumento=" + idTipoDocumento + ", idTipoPersona=" + idTipoPersona + ", saldo=" + saldo +'}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", direccion=" + direccion + ", email=" + email + ", password=" + password + ", numDocumento=" + numDocumento + ", idTipoDocumento=" + idTipoDocumento + ", idTipoPersona=" + idTipoPersona + ", saldo=" + saldo + '}';
     }
-    
-    
 }

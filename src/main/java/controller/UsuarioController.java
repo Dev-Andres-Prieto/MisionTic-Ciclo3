@@ -18,7 +18,7 @@ public class UsuarioController implements IUsuarioController{
             Statement st = con.getConnection().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                //int idUser = rs.getInt("id_usuarios");
+                int idUser = rs.getInt("id_usuarios");
                 String nombre = rs.getString("nombre_usuario");
                 String apellido = rs.getString("apellido_usuario");
                 String correo = rs.getString("email");
@@ -28,7 +28,8 @@ public class UsuarioController implements IUsuarioController{
                 String telefono = rs.getString("telefono");
                 String direccion = rs.getString("direccion");
                 int saldo = rs.getInt("saldo");
-                Usuario usuario = new Usuario(nombre, apellido, telefono, direccion, correo, contrasena, numDocumentos,idTipoDocumento, idTipoPersona, saldo);
+                Usuario usuario = new Usuario(idUser, nombre, apellido, telefono, direccion, correo, contrasena, numDocumentos,idTipoDocumento, idTipoPersona, saldo);
+                
                 return gson.toJson(usuario);
             }
         } catch (Exception ex) {
@@ -40,13 +41,13 @@ public class UsuarioController implements IUsuarioController{
     }
     
     @Override
-    public String register(String nombre, String apellido, String telefono, String direccion, String email, String contrasena, String numDocumento, int idTipoDocumento, int idTipoPersona, int saldo) {
+    public String register(String nombre, String apellido, String telefono, String direccion, String email, String contrasena, String numDocumento, int idTipoDocumento, int idTipoPersona, double saldo) {
         Gson gson = new Gson();
         DBConnection con = new DBConnection();
         
-        String sql = "Insert into usuarios values('" + nombre + "','" + apellido + "', '" + idTipoDocumento + "', '" + numDocumento
-                + "', '" + idTipoPersona + "','" + telefono + "', '" + direccion + "', '" + email
-                + "', '" + contrasena + "', '" + saldo +  ")";
+        String sql = "Insert into usuarios values(NULL, '" + nombre + "','" + apellido + "', " + idTipoDocumento + ", '" + numDocumento
+                + "', " + idTipoPersona + ",'" + telefono + "', '" + direccion + "', '" + email
+                + "', '" + contrasena + "', " + saldo + ")";
         
         
         try {
@@ -81,6 +82,7 @@ public class UsuarioController implements IUsuarioController{
             Statement st = con.getConnection().createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()){
+                int idUsuario = rs.getInt("id_usuarios");
                 String nombre = rs.getString("nombre_usuario");
                 String apellido = rs.getString("apellido_usuario");
                 int idTipoDocumento = rs.getInt("idtipo_documen");
@@ -89,9 +91,9 @@ public class UsuarioController implements IUsuarioController{
                 String telefono = rs.getString("telefono");
                 String direccion = rs.getString("direccion");     
                 String contrasena = rs.getString("contrasena");
-                int saldo = rs.getInt("saldo");
+                double saldo = rs.getDouble("saldo");
                 
-                Usuario usuario = new Usuario(nombre, apellido, telefono, direccion, email, contrasena, numDocumento, idTipoDocumento, idTipoPersona, saldo);
+                Usuario usuario = new Usuario(idUsuario,nombre, apellido, telefono, direccion, email, contrasena, numDocumento, idTipoDocumento, idTipoPersona, saldo);
                 return gson.toJson(usuario);
             }
         
@@ -103,7 +105,24 @@ public class UsuarioController implements IUsuarioController{
         }
         
         return "false";
-        
-        
+    }
+    
+    @Override
+    public String restarDinero(int idUser, double nuevoSaldo) {
+        DBConnection con = new DBConnection();
+        String sql = "Update usuarios set saldo = " + nuevoSaldo + " where id_usuarios = " + idUser;
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
     }
 }
