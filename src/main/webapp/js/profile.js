@@ -9,10 +9,10 @@ $(document).ready(function () {
 
         $("#user-saldo").html("$" + user.saldo.toFixed());
 
-        getAlquiladas(user.email);
+        getReservas(user.email);
     });
 
-    $("#reservar-btn").attr("href", `home.html?email=${email}`);
+    $("#reservar-btn").attr("href", `home.html?email=${email}&idUser=${idUser}`);
 
     $("#form-modificar").on("submit", function (event) {
 
@@ -24,8 +24,8 @@ $(document).ready(function () {
 
         eliminarCuenta().then(function () {
             location.href = "index.html";
-        })
-    })
+        });
+    });
 
 });
 
@@ -42,7 +42,7 @@ async function fillUsuario() {
 
             if (parsedResult != false) {
                 user = parsedResult;
-                console.log(parsedResult);
+                
                 $("#input-nombre").val(parsedResult.nombre);
                 $("#input-apellidos").val(parsedResult.apellido);
                 $("#input-tipo-documento").val(parsedResult.idTipoDocumento);
@@ -61,22 +61,22 @@ async function fillUsuario() {
     });
 }
 
-function getAlquiladas(email) {
+function getReservas(email) {
 
 
     $.ajax({
         type: "GET",
         dataType: "html",
-        url: "./ServletAlquilerListar",
+        url: "./ServletReservaListar",
         data: $.param({
-            email: email,
+            email: email
         }),
         success: function (result) {
             let parsedResult = JSON.parse(result);
 
             if (parsedResult != false) {
 
-                mostrarHistorial(parsedResult)
+                mostrarHistorial(parsedResult);
 
             } else {
                 console.log("Error recuperando los datos de las reservas");
@@ -102,7 +102,7 @@ function mostrarHistorial(vehiculos) {
 
             contenido += '></td><td>' + vehiculo.fechaRecepcion + '</td>' +
                     '<td><button id="devolver-btn" onclick= "devolverVehiculo(' + vehiculo.idVehiculo
-                    + ');" class="btn btn-danger">Devolver pelicula</button></td></tr>';
+                    + ');" class="btn btn-danger">Devolver vehículo</button></td></tr>';
 
         });
         $("#historial-tbody").html(contenido);
@@ -116,15 +116,15 @@ function mostrarHistorial(vehiculos) {
 }
 
 
-function devolverVehiculo(id) {
+function devolverVehiculo(idVehiculo) {
 
     $.ajax({
         type: "GET",
         dataType: "html",
         url: "./ServletVehiculoDevolver",
         data: $.param({
-            email: email,
-            id: id,
+            idUser: idUser,
+            idVehiculo: idVehiculo
         }),
         success: function (result) {
 
@@ -169,7 +169,8 @@ function modificarUsuario() {
             direccion: direccion,
             contrasena: contrasena,
             email: email,
-            saldo: saldo
+            saldo: saldo,
+            idUser: idUser
         }),
         success: function (result) {
 
@@ -197,7 +198,7 @@ async function eliminarCuenta() {
         dataType: "html",
         url: "./ServletUsuarioEliminar",
         data: $.param({
-            email: email
+            idUser: idUser
         }),
         success: function (result) {
 

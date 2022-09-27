@@ -36,9 +36,10 @@ public class OperationsDB {
                 String modelo = rs.getString("modelo");
                 String marca = rs.getString("marcas");
                 int idDescripcion = rs.getInt("id_descripcion");
-                int idTarifa = rs.getInt("id_tarifas");              
+                int idTarifa = rs.getInt("id_tarifas");   
+                int reservado = rs.getInt("reservado");
                 
-                Vehiculo vehiculo = new Vehiculo(id, modelo, marca, idDescripcion, idTarifa);
+                Vehiculo vehiculo = new Vehiculo(id, modelo, marca, idDescripcion, idTarifa, reservado);
                 System.out.println(vehiculo.toString());
                 
             }

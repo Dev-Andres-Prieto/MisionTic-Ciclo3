@@ -6,13 +6,15 @@ public class Vehiculo {
     private String marca;
     private int idDescripcion;
     private int idTarifa;
+    private int reservado;
 
-    public Vehiculo(int idVehiculo, String modelo, String marca, int idDescripcion, int idTarifa) {
+    public Vehiculo(int idVehiculo, String modelo, String marca, int idDescripcion, int idTarifa, int reservado) {
         this.idVehiculo = idVehiculo;
         this.modelo = modelo;
         this.marca = marca;
         this.idDescripcion = idDescripcion;
         this.idTarifa = idTarifa;
+        this.reservado = reservado;
     }    
 
     public int getIdVehiculo() {
@@ -55,9 +57,19 @@ public class Vehiculo {
         this.idTarifa = idTarifa;
     }
     
+    public int getReservado() {
+        return reservado;
+    }
+
+    public void setReservado(int reservado) {
+        this.reservado = reservado;
+    }
+
     @Override
     public String toString() {
-        return "Vehiculo{" + "idVehiculo=" + idVehiculo + ", modelo=" + modelo + ", marca=" + marca + ", idDescripcion=" + idDescripcion + ", idTarifa=" + idTarifa + '}';
+        return "Vehiculo{" + "idVehiculo=" + idVehiculo + ", modelo=" + modelo + ", marca=" + marca + ", idDescripcion=" + idDescripcion + ", idTarifa=" + idTarifa + ", reservado=" + reservado + '}';
     }
+    
+    
 }
 

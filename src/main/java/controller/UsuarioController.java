@@ -125,4 +125,60 @@ public class UsuarioController implements IUsuarioController{
 
         return "false";
     }
+    
+    @Override
+    public String modificar(int idUsuario, String nuevoNombre, String nuevoApellido, String nuevoTelefono, String nuevaDireccion, String nuevoEmail, String nuevaContrasena, String nuevoNumDocumento, double nuevoSaldo) {
+
+        DBConnection con = new DBConnection();
+
+        String sql = "Update usuarios set contrasena = '" + nuevaContrasena
+                + "', nombre_usuario = '" + nuevoNombre + "', "
+                + "apellido_usuario = '" + nuevoApellido + "', email = '"
+                + nuevoEmail + "', saldo = " + nuevoSaldo + ", direccion = '" + nuevaDireccion + "', "
+                + "telefono = '" + nuevoTelefono + "', num_documentos = "+ nuevoNumDocumento;
+
+        sql += " where id_usuarios = '" + idUsuario + "'";
+
+        try {
+
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
+
+    @Override
+    public String eliminar(int idUsuario) {
+        DBConnection con = new DBConnection();
+
+        String sql1 = "UPDATE vehiculo v, reserva r, usuarios u SET v.reservado = 0 WHERE v.id_vehiculo=r.id_vehiculo AND r.id_usuarios=u.id_usuarios\n" +
+                        "AND u.id_usuarios= '" + idUsuario + "'";
+        String sql2 = "Delete from reserva where id_usuarios = '" + idUsuario + "'";
+        String sql3 = "Delete from usuarios where id_usuarios = '" + idUsuario + "'";
+        
+
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql1);
+            st.executeUpdate(sql2);
+            st.executeUpdate(sql3);
+
+            return "true";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            con.desconectar();
+        }
+
+        return "false";
+
+    }
 }

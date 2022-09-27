@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 
     getUsuario().then(function () {
-        $("#mi-perfil-btn").attr("href", "profile.html?email=" + email);
+        $("#mi-perfil-btn").attr("href", "profile.html?email=" + email + "&idUser=" + idUser);
         $("#user-saldo").html("$" + user.saldo.toFixed(2)); 
         getVehiculos(false, "ASC");
 //        $("#oredenar-genero").click(ordenarVehiculos);
@@ -55,7 +55,7 @@ function getVehiculos(ordenar, orden) {
             if (parsedResult != false) {
                 mostrarVehiculos(parsedResult);
             } else {
-                console.log("Error recuperando los datos de los vehículos");
+                console.log("No hay vehículos para reservar");
             }
         }
     });
@@ -123,7 +123,7 @@ function mostrarVehiculos(vehiculos) {
                 let parsedResult = JSON.parse(result);
                 console.log("parsedResult desde alquilar vehículo: " +parsedResult);
                 if (parsedResult != false) {
-                    console.log(parsedResult);
+                   
                     restarDinero(precio).then(function () {
                         location.reload();
                     });
