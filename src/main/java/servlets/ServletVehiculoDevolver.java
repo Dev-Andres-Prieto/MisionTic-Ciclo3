@@ -29,8 +29,9 @@ public class ServletVehiculoDevolver extends HttpServlet {
 
         int idUsuario = Integer.parseInt(request.getParameter("idUser"));
         int idVehiculo = Integer.parseInt(request.getParameter("idVehiculo"));
+        int idReserva = Integer.parseInt(request.getParameter("idReserva"));
 
-        String peliculaStr = vehiculo.devolver(idUsuario, idVehiculo);
+        String peliculaStr = vehiculo.devolver(idUsuario, idVehiculo, idReserva);
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();

@@ -104,12 +104,12 @@ public class VehiculoController implements IVehiculo {
     }
 
     @Override
-    public String devolver(int idUsuario, int idVehiculo) {
+    public String devolver(int idUsuario, int idVehiculo, int idReserva) {
         Timestamp fechaDevolucion = new Timestamp(new Date().getTime());
         DBConnection con = new DBConnection();
         String sql = "Update reserva set fecha_devolucion='" + fechaDevolucion + "' "
                 + " where id_vehiculo= " + idVehiculo + " and id_usuarios = "
-                + idUsuario + " limit 1";
+                + idUsuario + " and id_reserva = " + idReserva + " limit 1";
         
         String sql2 = "Update vehiculo set reservado = 0"
                 + " where id_vehiculo= " + idVehiculo;

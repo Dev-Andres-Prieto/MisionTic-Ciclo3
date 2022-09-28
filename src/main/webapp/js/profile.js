@@ -88,13 +88,13 @@ function getReservas(email) {
 function mostrarHistorial(vehiculos) {
 
     let contenido = "";
-
+    
     if (vehiculos.length >= 1) {
 
         $.each(vehiculos, function (index, vehiculo) {
 
             vehiculo = JSON.parse(vehiculo);
-
+            console.log(vehiculo);
             contenido += '<tr><th scope="row">' + vehiculo.idVehiculo + '</th>' +
                     '<td>' + vehiculo.modelo + '</td>' +
                     '<td>' + vehiculo.marca + '</td>';
@@ -102,7 +102,7 @@ function mostrarHistorial(vehiculos) {
 
             contenido += '></td><td>' + vehiculo.fechaRecepcion + '</td>' +
                     '<td><button id="devolver-btn" onclick= "devolverVehiculo(' + vehiculo.idVehiculo
-                    + ');" class="btn btn-danger">Devolver vehículo</button></td></tr>';
+                    + ', ' + vehiculo.idReserva + ');" class="btn btn-danger">Devolver vehículo</button></td></tr>';
 
         });
         $("#historial-tbody").html(contenido);
@@ -116,7 +116,7 @@ function mostrarHistorial(vehiculos) {
 }
 
 
-function devolverVehiculo(idVehiculo) {
+function devolverVehiculo(idVehiculo, idReserva) {
 
     $.ajax({
         type: "GET",
@@ -124,7 +124,8 @@ function devolverVehiculo(idVehiculo) {
         url: "./ServletVehiculoDevolver",
         data: $.param({
             idUser: idUser,
-            idVehiculo: idVehiculo
+            idVehiculo: idVehiculo,
+            idReserva: idReserva
         }),
         success: function (result) {
 

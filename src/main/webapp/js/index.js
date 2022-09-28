@@ -51,7 +51,7 @@ function registrarUsuario() {
     let email = $("#input-email").val();
     let saldo = $("#input-saldo").val();
 
-    alert(saldo);
+   
     if (contrasena == contrasenaConfirmacion) {
         $.ajax({
             type: "GET",
@@ -75,7 +75,7 @@ function registrarUsuario() {
                 if (parsedResult != false) {
                     $("#register-error").addClass("d-none");
                     let email = parsedResult['email'];
-                    document.location.href = "home.html?email=" + email + "&idUser=" + idUser;
+                    document.location.href = "index.html";
                 } else {
                     $("#register-error").removeClass("d-none");
                     $("#register-error").html("Error en el registro del usuario");
