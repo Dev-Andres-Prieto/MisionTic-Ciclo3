@@ -94,7 +94,7 @@ function mostrarHistorial(vehiculos) {
         $.each(vehiculos, function (index, vehiculo) {
 
             vehiculo = JSON.parse(vehiculo);
-            
+            console.log(vehiculo);
             contenido += '<tr><th scope="row">' + vehiculo.idVehiculo + '</th>' +
                     '<td>' + vehiculo.modelo + '</td>' +
                     '<td>' + vehiculo.marca + '</td>';
